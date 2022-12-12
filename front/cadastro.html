@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Cadastrar Família</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="/assets/icons8-film-reel-100 (1).png" alt="Logo" id="logo">
+        </div>
+            <p class="title">Programa de acesso ao cinema</p>
+    </div>
+
+        <div class="main">
+            <div class="texto-principal">
+                Para cadastrar uma família no nosso programa ou para inscrêve-la em nossa fila de distribuição de ingressos, preencha os campos abaixo:            
+            </div>
+            <div class="campos">
+                <div class="direito">
+                    <div class="bairro">
+                        <h1>Bairro da família</h1>
+                        <input type="text" name="bairro" id="bairro">
+                    </div>
+                    <div class="quantidade-membros">
+                        <h1>Quantidade de membros</h1>
+                        <input type="number" name="quantidade-membros" id="quantidade-membros">
+                    </div>
+                    <div class="button-cadastro">
+                        <button class="button-cadastro" type="submit" id="button1">Cadastrar família</button>
+                    </div>
+                </div>
+                <div class="esquerdo">
+                    <div class="beneficiario">
+                        <h1>Beneficiário do Bolsa Família?</h1>
+                        <input type="checkbox" name="beneficiario" id="sim" value="sim">
+                        <label for="sim">Sim</label>
+                        <input type="checkbox" name="beneficiario" id="nao" value="nao">
+                        <label for="nao">Não</label>
+                    </div>
+    
+                    <div class="familia-pobre">
+                        <h1>Família em extrema pobreza?</h1>
+                        <input type="checkbox" name="beneficiario" id="sim" value="sim">
+                        <label for="sim">Sim</label>
+                        <input type="checkbox" name="beneficiario" id="nao" value="nao">
+                        <label for="nao">Não</label>
+                    </div>
+                    <div class="button-cadastro">
+                        <button class="button-cadastro"  type="submit" id="button2">Inscrever família na fila</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
