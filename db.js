@@ -39,4 +39,43 @@ async function deleteBairro(){
     return
 }
 
-module.exports = {selectBairro, insertBairro, updateBairro, deleteBairro}
+// subconsultas aninhadas
+
+// selecionar todos cinemas por bairro
+async function selectCinema(nome){
+    const conn = await connect();
+    const [rows] = await conn.query('SELECT * FROM cinema WHERE idBairro = (SELECT id FROM bairro WHERE nome = ?)', [nome]);
+    return await rows;
+
+}
+
+// selecionar n° de bairros por região administrativa
+async function selectBairroRegiao(nome){
+    const conn = await connect();
+    const [rows] = await conn.query('SELECT COUNT(*) AS nBairros FROM bairro WHERE idRegiao_Administrativa = (SELECT id FROM regiao_administrativa WHERE nome = ?)', [nome]);
+    return await rows;
+}
+
+// somar a capacidade dos cinemas por bairro
+async function selectCapacidadeCinema(nome){
+    const conn = await connect();
+    const [rows] = await conn.query('SELECT SUM(capacidade) AS capacidade FROM cinema WHERE idBairro = (SELECT id FROM bairro WHERE nome = ?)', [nome]);
+    return await rows;
+}
+
+// media dos IDHs
+async function selectMediaIDH(){
+    const conn = await connect();
+    const [rows] = await conn.query('SELECT AVG(idh) AS media FROM bairro');
+    return await rows;
+}
+
+// media dos IDHs por bairro
+async function selectMediaIDHBairro(nome){
+    const conn = await connect();
+    const [rows] = await conn.query('SELECT AVG(idh) AS media FROM bairro WHERE idRegiao_Administrativa = (SELECT id FROM regiao_administrativa WHERE nome = ?)', [nome]);
+    return await rows;
+}
+
+module.exports = {selectBairro, insertBairro, updateBairro, deleteBairro, selectCinema, selectBairroRegiao,
+    selectCapacidadeCinema, selectMediaIDH, selectMediaIDHBairro}
