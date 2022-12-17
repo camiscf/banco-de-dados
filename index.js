@@ -22,12 +22,24 @@
 
     // media dos idhs   
     const media = await db.selectMediaIDH();
-    console.log(media);
+    //console.log(media);
 
     // media dos idhs por bairro
     const mediaBairro = await db.selectMediaIDHBairro('Centro');
-    console.log(mediaBairro);
+    //console.log(mediaBairro);
     
+    const bairroSemCinema = await db.selectBairroSemCinema();
+    //console.log(bairroSemCinema);
+    
+    const FamiliaBairroCinema = await db.selectFamiliaBairroCinema();
+    //console.log(FamiliaBairroCinema);
+
+    const selectBairroFamiliaDados = await db.selectBairroFamiliaDados();
+
+    const selectTudo = await db.selectTudo();
+
+
+
     }
 
  main();

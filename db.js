@@ -63,10 +63,10 @@ async function selectCapacidadeCinema(nome){
     return await rows;
 }
 
-// media dos IDHs
+// media dos IDHs por região adm
 async function selectMediaIDH(){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT AVG(idh) AS media FROM bairro');
+    const [rows] = await conn.query('SELECT AVG(idh) AS media, bairro.nome as nome_bairro, regiao_administrativa.nome as regiao_administrativa FROM BAIRRO INNER JOIN regiao_administrativa ON regiao_administrativa.ID = bairro.idRegiao_Administrativa  group by idRegiao_Administrativa');
     return await rows;
 }
 
@@ -77,5 +77,36 @@ async function selectMediaIDHBairro(nome){
     return await rows;
 }
 
+// descobrir bairros sem cinema com junção externa
+async function selectBairroSemCinema(){
+    const conn = await connect();
+    const [rows] = await conn.query('SELECT bairro.nome FROM bairro LEFT OUTER JOIN cinema ON bairro.id = cinema.idBairro WHERE cinema.idBairro IS NULL');
+    return await rows;
+}
+
+// familia frequenta bairro e cinema
+async function selectFamiliaBairroCinema(){
+    const conn = await connect();
+    const [rows] = await conn.query('SELECT * FROM familia INNER JOIN Frequenta ON frequenta.ID_Familia = familia.ID     INNER JOIN BAIRRO ON BAIRRO.ID = familia.idBairro INNER JOIN cinema on cinema.idBairro = bairro.ID');
+    return await rows;
+}
+
+// BAIRRO FAMILIA DADOS_CECAD
+async function selectBairroFamiliaDados(){
+    const conn = await connect();
+    const [rows] = await conn.query('select *  from bairro inner join familia on familia.idBairro = bairro.ID inner join dados_cecad on dados_cecad.idBairro = familia.idBairro GROUP BY familia.idBairro');
+    return await rows;
+}
+
+// inner join tudo
+async function selectTudo(){
+    const conn = await connect();
+    const [rows] = await conn.query('select * from bairro inner join cinema on cinema.idBairro = bairro.ID inner join familia on familia.idBairro = bairro.ID inner join dados_cecad on dados_cecad.idBairro = familia.idBairro inner join regiao_administrativa on regiao_administrativa.ID = bairro.idRegiao_Administrativa');
+    return await rows;
+}
+
+
+// exporta as funções para serem usadas em outros arquivos
+
 module.exports = {selectBairro, insertBairro, updateBairro, deleteBairro, selectCinema, selectBairroRegiao,
-    selectCapacidadeCinema, selectMediaIDH, selectMediaIDHBairro}
+    selectCapacidadeCinema, selectMediaIDH, selectMediaIDHBairro, selectBairroSemCinema, selectFamiliaBairroCinema, selectTudo, selectBairroFamiliaDados}
