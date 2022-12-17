@@ -38,8 +38,8 @@
 
     const selectTudo = await db.selectTudo();
 
-
-
+    const selectSumFamiliaBairro = await db.selectSumFamiliaBairro();
+    
     }
 
  main();

@@ -105,8 +105,15 @@ async function selectTudo(){
     return await rows;
 }
 
+// quantidade de familia por bairro
+async function selectSumFamiliaBairro(){
+    const conn = await connect();
+    const [rows] = await conn.query('select sum(familia.id) as somaDeFamilias, id as familia_id from familia group by idBairro');
+    return await rows;
+}
+
 
 // exporta as funções para serem usadas em outros arquivos
 
 module.exports = {selectBairro, insertBairro, updateBairro, deleteBairro, selectCinema, selectBairroRegiao,
-    selectCapacidadeCinema, selectMediaIDH, selectMediaIDHBairro, selectBairroSemCinema, selectFamiliaBairroCinema, selectTudo, selectBairroFamiliaDados}
+    selectCapacidadeCinema, selectMediaIDH, selectMediaIDHBairro, selectBairroSemCinema, selectFamiliaBairroCinema, selectTudo, selectBairroFamiliaDados, selectSumFamiliaBairro}
