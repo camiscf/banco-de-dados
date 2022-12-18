@@ -46,7 +46,6 @@ async function selectCinema(nome){
     const conn = await connect();
     const [rows] = await conn.query('SELECT * FROM cinema WHERE idBairro = (SELECT id FROM bairro WHERE nome = ?)', [nome]);
     return await rows;
-
 }
 
 // selecionar n° de bairros por região administrativa
@@ -55,18 +54,20 @@ async function selectBairroRegiao(nome){
     const [rows] = await conn.query('SELECT COUNT(*) AS nBairros FROM bairro WHERE idRegiao_Administrativa = (SELECT id FROM regiao_administrativa WHERE nome = ?)', [nome]);
     return await rows;
 }
+// fim da subconsulta aninhada
 
+// AGREGAÇÃO
 // somar a capacidade dos cinemas por bairro
-async function selectCapacidadeCinema(nome){
+async function selectCapacidadeCinema(){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT SUM(capacidade) AS capacidade FROM cinema WHERE idBairro = (SELECT id FROM bairro WHERE nome = ?)', [nome]);
+    const [rows] = await conn.query('select sum(Capacidade) as SomaCapacidade, bairro.nome from cinema inner join bairro on bairro.id = cinema.idBairro group by idBairro');
     return await rows;
 }
 
 // media dos IDHs por região adm
 async function selectMediaIDH(){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT AVG(idh) AS media, bairro.nome as nome_bairro, regiao_administrativa.nome as regiao_administrativa FROM BAIRRO INNER JOIN regiao_administrativa ON regiao_administrativa.ID = bairro.idRegiao_Administrativa  group by idRegiao_Administrativa');
+    const [rows] = await conn.query('SELECT AVG(idh) AS media, bairro.nome as nome_bairro, regiao_administrativa.nome as regiao_administrativa FROM BAIRRO INNER JOIN regiao_administrativa ON regiao_administrativa.ID = bairro.idRegiao_Administrativa  group by idRegiao_Administrativa order by idRegiao_Administrativa');
     return await rows;
 }
 
@@ -111,6 +112,8 @@ async function selectSumFamiliaBairro(){
     const [rows] = await conn.query('select sum(familia.id) as somaDeFamilias, id as familia_id from familia group by idBairro');
     return await rows;
 }
+
+
 
 
 // exporta as funções para serem usadas em outros arquivos

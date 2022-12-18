@@ -3,44 +3,35 @@
  const db = require('./db');
 
  async function main(){
-     //const bairros = await db.selectBairro();
-     //console.log(bairros);
+    const selectCapacidadeCinema = await db.selectCapacidadeCinema();
+    const selectMediaIDH = await db.selectMediaIDH();
+    //rotas
+    const express = require('express');
+    const app = express();
+    const port = 3000;
+    app.set('view engine', 'ejs');
+    app.use(express.static("front"));
 
-     //subconsulta aninhada de cinema por bairro
-     const cinemas = await db.selectCinema('Centro');
-     //console.log(cinemas);
+    app.get('/', (req, res) => {
+        //mostrar o index.html
+        res.sendFile(__dirname + '/front/index.html');
+    });
 
-     //subconsulta aninhada para selecionar n° de bairros por região administrativa
+    app.get('/CapacidadeCinema', (req, res) => {
+       // mostrar dados do banco no front com tudo.ejs
+         res.render('selectCapacidadeCinema',{title: 'Capacidade dos Cinemas', action:'list', sampleData: selectCapacidadeCinema});
+    });
 
-    const bairros = await db.selectBairroRegiao('Centro');
-    //console.log(bairros);
+    app.get('/mediaIDH', (req, res) => {
+        // mostrar dados do banco no front com tudo.ejs
+          res.render('idhRA',{title: 'Média dos IDHs por Região Administrativa', action:'list', sampleData: selectMediaIDH});
+     });
 
-    //subconsulta aninhada para somar a capacidade dos cinemas por bairro
-    
-    const capacidade = await db.selectCapacidadeCinema('Centro');
-    //console.log(capacidade);
 
-    // media dos idhs   
-    const media = await db.selectMediaIDH();
-    //console.log(media);
+    app.listen(port, () => {
+        console.log(`Example app listening at http://localhost:${port}`);
+    });
+}
 
-    // media dos idhs por bairro
-    const mediaBairro = await db.selectMediaIDHBairro('Centro');
-    //console.log(mediaBairro);
-    
-    const bairroSemCinema = await db.selectBairroSemCinema();
-    //console.log(bairroSemCinema);
-    
-    const FamiliaBairroCinema = await db.selectFamiliaBairroCinema();
-    //console.log(FamiliaBairroCinema);
-
-    const selectBairroFamiliaDados = await db.selectBairroFamiliaDados();
-
-    const selectTudo = await db.selectTudo();
-
-    const selectSumFamiliaBairro = await db.selectSumFamiliaBairro();
-    
-    }
-
- main();
+main();
 
