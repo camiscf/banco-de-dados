@@ -85,36 +85,37 @@ async function selectSumFamiliaBairro(){
 
 // ****** FIM DE AGREGAÇÃO  ******
 
+// INICIO DAS CONSULTAS COM JOIN 
 // descobrir bairros sem cinema com junção externa
 async function selectBairroSemCinema(){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT bairro.nome FROM bairro LEFT OUTER JOIN cinema ON bairro.id = cinema.idBairro WHERE cinema.idBairro IS NULL');
+    const [rows] = await conn.query('SELECT Bairro.nome as bairro, coordenadas, idh FROM bairro LEFT OUTER JOIN cinema ON bairro.id = cinema.idBairro WHERE cinema.idBairro IS NULL');
     return await rows;
 }
 
 // familia frequenta bairro e cinema
 async function selectFamiliaBairroCinema(){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT * FROM familia INNER JOIN Frequenta ON frequenta.ID_Familia = familia.ID     INNER JOIN BAIRRO ON BAIRRO.ID = familia.idBairro INNER JOIN cinema on cinema.idBairro = bairro.ID');
+    const [rows] = await conn.query('SELECT Familia.ID, Familia.Qtd_Membros, Frequenta.Qtd_Ingressos, Familia.Extrema_Pobreza, Familia.Beneficiario_BF,    Bairro.Nome as bairro,  Cinema.nome as cinema FROM familia INNER JOIN Frequenta ON frequenta.ID_Familia = familia.ID     INNER JOIN BAIRRO ON BAIRRO.ID = familia.idBairro INNER JOIN cinema on cinema.idBairro = bairro.ID    group by familia.id');
     return await rows;
 }
 
 // BAIRRO FAMILIA DADOS_CECAD
 async function selectBairroFamiliaDados(){
     const conn = await connect();
-    const [rows] = await conn.query('select *  from bairro inner join familia on familia.idBairro = bairro.ID inner join dados_cecad on dados_cecad.idBairro = familia.idBairro GROUP BY familia.idBairro');
+    const [rows] = await conn.query('select  familia.id as idFamilia, bairro.nome as bairro, familia.extrema_pobreza, beneficiario_bf,   qtd_membros, renda_per_capita as qntdRendaPerCapitaBairro, dados_cecad.extrema_pobreza as qntdExtremaPobrezaBairro, dados_cecad.bolsa_familia as qntdBolsaFamiliaBairro from bairro     inner join familia     on familia.idBairro = bairro.ID     inner join dados_cecad     on dados_cecad.idBairro = familia.idBairro    group by renda_per_capita     order by familia.id');
     return await rows;
 }
 
 // inner join tudo
 async function selectTudo(){
     const conn = await connect();
-    const [rows] = await conn.query('select * from bairro inner join cinema on cinema.idBairro = bairro.ID inner join familia on familia.idBairro = bairro.ID inner join dados_cecad on dados_cecad.idBairro = familia.idBairro inner join regiao_administrativa on regiao_administrativa.ID = bairro.idRegiao_Administrativa');
+    const [rows] = await conn.query('select bairro.nome as bairro, salas, capacidade, cinema.nome as cinema, familia.ID as idFamilia,    familia.Beneficiario_BF, familia.Extrema_Pobreza, familia.Qtd_Membros, dados_cecad.Bolsa_Familia as qntBF, dados_cecad.Extrema_Pobreza as qntEP, dados_cecad.Renda_per_capita as qntRPC, regiao_administrativa.Nome as regAdm, regiao_administrativa.Numero_Bairros as qntBairros    from bairro     inner join cinema on cinema.idBairro = bairro.ID     inner join familia on familia.idBairro = bairro.ID     inner join dados_cecad on dados_cecad.idBairro = familia.idBairro     inner join regiao_administrativa     on regiao_administrativa.ID = bairro.idRegiao_Administrativa    group by familia.id order by idFamilia');
     return await rows;
 }
 
 
-
+// FIM DAS CONSULTAS COM JOIN
 
 // exporta as funções para serem usadas em outros arquivos
 

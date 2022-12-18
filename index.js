@@ -4,11 +4,18 @@
 
  async function main(){
     const selectCapacidadeCinema = await db.selectCapacidadeCinema();
+    
     const selectMediaIDH = await db.selectMediaIDH();
 
     const selectSumFamiliaBairro = await db.selectSumFamiliaBairro();
 
+    const selectFamiliaCinema = await db.selectFamiliaBairroCinema();
 
+    const selectBairroSemCinema = await db.selectBairroSemCinema();
+
+    const selectBairroDadosCecad = await db.selectBairroFamiliaDados();
+
+    const selectTudo = await db.selectTudo();
     //rotas
     const express = require('express');
     const app = express();
@@ -35,6 +42,29 @@
     app.get('/qntfamiliaBairro', (req, res) => {
         
             res.render('qntfamiliabairro',{title: 'Quantidade de Famílias por Bairro', action:'list', sampleData: selectSumFamiliaBairro});
+    });
+
+// consultas com JOIN
+//familia frequenta cinema por bairro
+    app.get('/familiaCinema', (req, res) => {
+
+        res.render('JOINFamiliaCinema',{title: 'Famílias que frequentam cinema por bairro', action:'list', sampleData: selectFamiliaCinema});
+    });
+
+//bairro sem cinema
+    app.get('/bairroSemCinema', (req, res) => {
+
+        res.render('JOINBairrosSemCinema',{title: 'Bairros sem Cinema', action:'list', sampleData: selectBairroSemCinema});
+    });
+
+// BAIRRO FAMILIA DADOS_CECAD
+    app.get('/bairroFamilia', (req, res) => {
+        res.render('bairroFamilia',{title: 'Informações do CECAD do bairro das famílias', action:'list', sampleData: selectBairroDadosCecad});
+    });
+
+// SELECT TUDO
+    app.get('/tudo', (req, res) => {
+        res.render('selectTudo',{title: 'Família Frequenta Cinema que pertence ao Bairro que está na Região Administrativa', action:'list', sampleData: selectTudo});
     });
 
     app.listen(port, () => {
