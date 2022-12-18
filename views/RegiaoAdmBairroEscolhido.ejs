@@ -20,24 +20,16 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col">Consulta de Agregação</div>
+                        <div class="col">Subconsulta</div>
                         <div class="col"></div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="/cinemaBairroEscolhido" method="post">
-                        <select class="form-control" name="bairro">
-                            <option>Selecione o bairro que deseja a informação</option>
-                            <option>Centro</option>                        
-                          </select>
-                        <button type="submit" class="btn btn-primary">Pesquisar</button>
-                    </form>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <tr>
-                                <th>Média IDH</th>
-                                <th>Bairro</th>
-                                <th>Região Administrativa</th>
+                                <th>Quantidade de Bairros</th>
+                                
                             </tr>
                             <%
                             if(sampleData.length > 0)
@@ -45,9 +37,8 @@
                                 sampleData.forEach(function(select){
                             %>
                             <tr>
-                                <td><%= select.media %></td>
-                                <td><%= select.nome_bairro%></td>
-                                <td><%= select.regiao_administrativa%></td>
+                                <td><%= select.nBairros %></td>
+                        
                                 <td></td>
                             </tr>
                             <%

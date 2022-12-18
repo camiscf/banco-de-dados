@@ -1,12 +1,16 @@
+:root{
+    --bs-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 *{
     overflow: hidden; 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-    background-color: #240957;
-    color: #fff;
+    font-family: var(--bs-font-sans-serif);
+    background-color: #fff;
+    color: #212529;
 }
 .header{
     display: flex;
@@ -23,7 +27,7 @@
     font-weight: 700;
     font-size: 2.5rem;
     height: 50px;
-    line-height: 2.5rem;
+    line-height:2.75rem;
 }   
 .main{
     display: flex;
@@ -49,26 +53,15 @@
     flex-direction: column;
     margin-right: 4rem;
 }
-.buttons{
+.commands{
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
-    margin: 0 10rem;
     width: 20rem;   
-    translate: 0 -110%; 
+    
+    translate: 50% -230%; 
 }
-.button-purple{
-    background-color: #3401A4;
-    color: #fff;
-    border: none;
-    height: 3rem;
-    width: 20rem;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-top: 1rem;
-    cursor: pointer;
-    text-align: center;
+.btn{
+    margin-top: 1.5rem;
 }

@@ -1,0 +1,105 @@
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>Consulta SQL</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center mt-3 mb-3"><%= title %></h1>
+            
+            <% if(action == 'add') { %>
+
+            <% } else { %>
+                
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">Subconsultas</div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form id="form-regiaoAdm" method="post">
+                        <div class="input-group">
+                            <select class="form-select" id="regiaoAdm">
+                              <option selected>Escolha o bairro</option>
+                              <option value="Centro">Centro</option>
+                              <option value="Botafogo">Botafogo</option>
+                              <option value="Copacabana">Copacabana</option>
+                              <option value="Lagoa">Lagoa</option>
+                              <option value="Tijuca">Tijuca</option>
+                              <option value="Benfica">São Cristovão</option>
+                              <option value="Vila Isabel">Vila Isabel</option>
+                              <option value="Bonsucesso">Ramos</option>
+                              <option value="Del Castilho">Inhaúma</option>
+                              <option value="Irajá">Irajá</option>
+                              <option value="Madureira">Madureira</option>
+                              <option value="Jacarepaguá">Jacarepaguá</option>
+                              <option value="Jardim Carioca">Ilha do Governador</option>
+                              <option value="Guadalupe">Anchieta</option>
+                              <option value="Santa Teresa">Santa Teresa</option>
+                              <option value="Barra da Tijuca">Barra da Tijuca</option>
+                              <option value="Campo Grande">Campo Grande</option>
+                              <option value="Jardim Sulacap">Realengo</option>
+                              <option value="Méier">Méier</option>
+                              <option value="Bangu">Bangu</option>
+                            </select>
+                            <button id="pesquisar-regiaoAdm" class="btn btn-primary" type="submit">Pesquisar</button>
+                          </div>
+                    </form>
+                    <% if (sampleData) { %>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Salas</th>
+                                <th>Capacidade</th>
+                                <th>Cinema</th>
+                            </tr>
+                            <% if(sampleData.length > 0)
+                            {
+                                sampleData.forEach(function(select){
+                            %>
+                            <tr>
+                                <td><%= select.salas %></td>
+                                <td><%= select.capacidade %></td>
+                                <td><%= select.nome %></td>
+                                <td></td>
+                            </tr>
+                            <%
+                                });
+                            }
+                            else
+                            {
+                            %>
+                            <tr>
+                                <td colspan="5">No Data Found</td>
+                            </tr>
+                            <%
+                            }
+                            %>
+                        </table>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+
+            <% } %>
+
+        </div> 
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script>
+            document.getElementById('regiaoAdm').onchange = () => {
+                const regiaoAdm = document.getElementById('regiaoAdm').value;
+                const baseUrl = window.location.href.substr(0, window.location.href.indexOf('/'));
+                document.getElementById('form-regiaoAdm').action = baseUrl + 'RegiaoAdmBairroEscolhido/' + regiaoAdm;
+            }
+        </script>
+    </body>
+</html>

@@ -1,26 +1,35 @@
+import dbRouter from './routers/db.js';
+import express from 'express';
+import { 
+    selectCapacidadeCinema, 
+    selectMediaIDH, 
+    selectSumFamiliaBairro, 
+    selectFamiliaBairroCinema, 
+    selectBairroSemCinema, 
+    selectBairroFamiliaDados, 
+    selectTudo 
+} from './db.js';
+
+import bodyParser from 'body-parser';
 //simular aplicação 
 
- const db = require('./db');
-
  async function main(){
-    const selectCapacidadeCinema = await db.selectCapacidadeCinema();
+    const selectCapacidadeCinemaVAR = await selectCapacidadeCinema();
 
-    const selectMediaIDH = await db.selectMediaIDH();
+    const selectMediaIDHVAR = await selectMediaIDH();
 
-    const selectSumFamiliaBairro = await db.selectSumFamiliaBairro();
+    const selectSumFamiliaBairroVAR = await selectSumFamiliaBairro();
 
-    const selectFamiliaCinema = await db.selectFamiliaBairroCinema();
+    const selectFamiliaCinemaVAR = await selectFamiliaBairroCinema();
 
-    const selectBairroSemCinema = await db.selectBairroSemCinema();
+    const selectBairroSemCinemaVAR = await selectBairroSemCinema();
 
-    const selectBairroDadosCecad = await db.selectBairroFamiliaDados();
+    const selectBairroDadosCecadVAR = await selectBairroFamiliaDados();
 
-    const selectTudo = await db.selectTudo();
-
-    
+    const selectTudoVAR = await selectTudo();
 
     //rotas
-    const express = require('express');
+   
     const app = express();
     const port = 3000;
     app.set('view engine', 'ejs');
@@ -31,44 +40,6 @@
         res.sendFile(__dirname + '/front/index.html');
     });
 //agregação
-//// somar a capacidade dos cinemas por bairro
-    app.get('/CapacidadeCinema', (req, res) => {
-       // mostrar dados do banco no front com tudo.ejs
-         res.render('selectCapacidadeCinema',{title: 'Capacidade dos Cinemas', action:'list', sampleData: selectCapacidadeCinema});
-    });
-// media dos IDHs por região adm
-    app.get('/mediaIDH', (req, res) => {
-        
-          res.render('idhRA',{title: 'Média dos IDHs por Região Administrativa', action:'list', sampleData: selectMediaIDH});
-     });
-//quantidade de familia por bairro
-    app.get('/qntfamiliaBairro', (req, res) => {
-        
-            res.render('qntfamiliabairro',{title: 'Quantidade de Famílias por Bairro', action:'list', sampleData: selectSumFamiliaBairro});
-    });
-
-// consultas com JOIN
-//familia frequenta cinema por bairro
-    app.get('/familiaCinema', (req, res) => {
-
-        res.render('JOINFamiliaCinema',{title: 'Famílias que frequentam cinema por bairro', action:'list', sampleData: selectFamiliaCinema});
-    });
-
-//bairro sem cinema
-    app.get('/bairroSemCinema', (req, res) => {
-
-        res.render('JOINBairrosSemCinema',{title: 'Bairros sem Cinema', action:'list', sampleData: selectBairroSemCinema});
-    });
-
-// BAIRRO FAMILIA DADOS_CECAD
-    app.get('/bairroFamilia', (req, res) => {
-        res.render('bairroFamilia',{title: 'Informações do CECAD do bairro das famílias', action:'list', sampleData: selectBairroDadosCecad});
-    });
-
-// SELECT TUDO
-    app.get('/tudo', (req, res) => {
-        res.render('selectTudo',{title: 'Família Frequenta Cinema que pertence ao Bairro que está na Região Administrativa', action:'list', sampleData: selectTudo});
-    });
 
     app.listen(port, () => {
         console.log(`Example app listening at http://localhost:${port}`);
@@ -77,7 +48,6 @@
     // subconsultas aninhadas
 
     //body parser
-    const bodyParser = require('body-parser');
     app.use(bodyParser.urlencoded({ extended: true }));
 
     // selecionar o cinema por bairro
@@ -86,10 +56,10 @@
     });
 
 
-    app.post('/cinemaBairroEscolhido', (req, res) => {
+    app.post('/cinemaBairroEscolhido', async (req, res) => {
         //res.send('Bairro escolhido: ' + req.body.bairro);
         const bairro = req.body.bairro;
-        selectCinemaBairro = db.selectCinemaBairro(bairro);
+        const selectCinemaBairro = await selectCinemaBairro(bairro);
         res.render('cinemaBairroEscolhido',{title: 'Cinema por Bairro', action:'list', sampleData: selectCinemaBairro});    
        });
     
@@ -97,10 +67,12 @@
     // selecionar n° de bairros por região administrativa
     app.get('/bairroRA', (req, res) => {
         const regiao = req.body.regiao;
-        selectBairroRA = db.selectBairroRegiao(regiao);
-        res.render('bairroRA',{title: 'Bairro por Região Administrativa', action:'list', sampleData: selectMediaIDH});
+        selectBairroRA = selectBairroRegiao(regiao);
+        res.render('bairroRA',{title: 'Bairro por Região Administrativa', action:'list', sampleData: selectBairroRA});
     });
 
+
+    app.use('/db', dbRouter);
 }
 
 main();
