@@ -4,7 +4,7 @@
 
  async function main(){
     const selectCapacidadeCinema = await db.selectCapacidadeCinema();
-    
+
     const selectMediaIDH = await db.selectMediaIDH();
 
     const selectSumFamiliaBairro = await db.selectSumFamiliaBairro();
@@ -16,6 +16,9 @@
     const selectBairroDadosCecad = await db.selectBairroFamiliaDados();
 
     const selectTudo = await db.selectTudo();
+
+    
+
     //rotas
     const express = require('express');
     const app = express();
@@ -70,6 +73,34 @@
     app.listen(port, () => {
         console.log(`Example app listening at http://localhost:${port}`);
     });
+
+    // subconsultas aninhadas
+
+    //body parser
+    const bodyParser = require('body-parser');
+    app.use(bodyParser.urlencoded({ extended: true }));
+
+    // selecionar o cinema por bairro
+    app.get('/cinemaBairro', (req, res) => {
+        res.render('cinemaBairro',{title: 'Cinema por Bairro', action:'list', sampleData: selectMediaIDH});
+    });
+
+
+    app.post('/cinemaBairroEscolhido', (req, res) => {
+        //res.send('Bairro escolhido: ' + req.body.bairro);
+        const bairro = req.body.bairro;
+        selectCinemaBairro = db.selectCinemaBairro(bairro);
+        res.render('cinemaBairroEscolhido',{title: 'Cinema por Bairro', action:'list', sampleData: selectCinemaBairro});    
+       });
+    
+    
+    // selecionar n° de bairros por região administrativa
+    app.get('/bairroRA', (req, res) => {
+        const regiao = req.body.regiao;
+        selectBairroRA = db.selectBairroRegiao(regiao);
+        res.render('bairroRA',{title: 'Bairro por Região Administrativa', action:'list', sampleData: selectMediaIDH});
+    });
+
 }
 
 main();

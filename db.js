@@ -42,16 +42,16 @@ async function deleteBairro(){
 // subconsultas aninhadas
 
 // selecionar todos cinemas por bairro
-async function selectCinema(nome){
+async function selectCinemaBairro(bairro){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT * FROM cinema WHERE idBairro = (SELECT id FROM bairro WHERE nome = ?)', [nome]);
+    const [rows] = await conn.query('SELECT salas, capacidade, nome FROM cinema WHERE idBairro = (SELECT id FROM bairro WHERE nome = "?")', [bairro]);
     return await rows;
 }
 
 // selecionar n° de bairros por região administrativa
-async function selectBairroRegiao(nome){
+async function selectBairroRegiao(RA){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT COUNT(*) AS nBairros FROM bairro WHERE idRegiao_Administrativa = (SELECT id FROM regiao_administrativa WHERE nome = ?)', [nome]);
+    const [rows] = await conn.query(`SELECT COUNT(*) AS nBairros FROM bairro WHERE idRegiao_Administrativa = (SELECT id FROM regiao_administrativa WHERE nome = "?")`, [RA]);
     return await rows;
 }
 // fim da subconsulta aninhada
@@ -119,4 +119,4 @@ async function selectTudo(){
 
 // exporta as funções para serem usadas em outros arquivos
 
-module.exports = {selectBairro, insertBairro, updateBairro, deleteBairro, selectCinema, selectBairroRegiao,selectCapacidadeCinema, selectMediaIDH, selectMediaIDHBairro, selectBairroSemCinema, selectFamiliaBairroCinema, selectTudo, selectBairroFamiliaDados, selectSumFamiliaBairro}
+module.exports = {selectBairro, insertBairro, updateBairro, deleteBairro, selectCinemaBairro, selectBairroRegiao,selectCapacidadeCinema, selectMediaIDH, selectMediaIDHBairro, selectBairroSemCinema, selectFamiliaBairroCinema, selectTudo, selectBairroFamiliaDados, selectSumFamiliaBairro}
