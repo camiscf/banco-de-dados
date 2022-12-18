@@ -71,12 +71,19 @@ async function selectMediaIDH(){
     return await rows;
 }
 
-// media dos IDHs por bairro
-async function selectMediaIDHBairro(nome){
+// media dos IDHs por bairro - não ta no front
+async function selectMediaIDHBairro(){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT AVG(idh) AS media FROM bairro WHERE idRegiao_Administrativa = (SELECT id FROM regiao_administrativa WHERE nome = ?)', [nome]);
+    const [rows] = await conn.query('SELECT AVG(idh) AS media, bairro.nome as nome_bairro FROM BAIRRO group by id order by id');
+}
+// quantidade de familia por bairro
+async function selectSumFamiliaBairro(){
+    const conn = await connect();
+    const [rows] = await conn.query('select sum(familia.id) as soma, bairro.nome from familia inner join bairro on bairro.id = familia.idBairro group by idBairro');
     return await rows;
 }
+
+// ****** FIM DE AGREGAÇÃO  ******
 
 // descobrir bairros sem cinema com junção externa
 async function selectBairroSemCinema(){
@@ -106,17 +113,9 @@ async function selectTudo(){
     return await rows;
 }
 
-// quantidade de familia por bairro
-async function selectSumFamiliaBairro(){
-    const conn = await connect();
-    const [rows] = await conn.query('select sum(familia.id) as somaDeFamilias, id as familia_id from familia group by idBairro');
-    return await rows;
-}
-
 
 
 
 // exporta as funções para serem usadas em outros arquivos
 
-module.exports = {selectBairro, insertBairro, updateBairro, deleteBairro, selectCinema, selectBairroRegiao,
-    selectCapacidadeCinema, selectMediaIDH, selectMediaIDHBairro, selectBairroSemCinema, selectFamiliaBairroCinema, selectTudo, selectBairroFamiliaDados, selectSumFamiliaBairro}
+module.exports = {selectBairro, insertBairro, updateBairro, deleteBairro, selectCinema, selectBairroRegiao,selectCapacidadeCinema, selectMediaIDH, selectMediaIDHBairro, selectBairroSemCinema, selectFamiliaBairroCinema, selectTudo, selectBairroFamiliaDados, selectSumFamiliaBairro}
