@@ -69,8 +69,14 @@ CREATE TABLE frequenta (
 ## Adicionando as FK
 
 ALTER TABLE Bairro ADD CONSTRAINT fk_reg_ad FOREIGN KEY(idRegiao_Administrativa) REFERENCES Regiao_Administrativa (ID);
+
 ALTER TABLE Familia ADD CONSTRAINT fk_fbairro FOREIGN KEY(idBairro) REFERENCES Bairro (ID);
+
 ALTER TABLE Cinema ADD CONSTRAINT fk_cbairro FOREIGN KEY(idBairro) REFERENCES Bairro (ID);
+
 ALTER TABLE Dados_CECAD ADD CONSTRAINT fk_dbairro FOREIGN KEY(idBairro) REFERENCES Bairro (ID);
+
 ALTER TABLE Frequenta ADD CONSTRAINT fk_familia FOREIGN KEY(ID_Familia) REFERENCES Familia (ID);
+
 ALTER TABLE Frequenta ADD CONSTRAINT fk_cinema FOREIGN KEY(ID_Cinema) REFERENCES Cinema (ID);
+
