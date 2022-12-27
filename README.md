@@ -268,3 +268,142 @@ INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro)
 
 INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (3808,13896,8378,5);
 
+## Populando tabela familia
+
+INSERT INTO familia VALUES (0,0,1,4,27);
+
+INSERT INTO familia VALUES (0,0,2,2,27);
+
+INSERT INTO familia VALUES (0,1,3,8,27);
+
+INSERT INTO familia VALUES (0,1,4,6,27);
+
+INSERT INTO familia VALUES (0,1,5,5,27);
+
+INSERT INTO familia VALUES (1,1,6,3,26);
+
+INSERT INTO familia VALUES (0,0,7,2,26);
+
+INSERT INTO familia VALUES (1,1,8,8,26);
+
+INSERT INTO familia VALUES (0,0,9,6,26);
+
+INSERT INTO familia VALUES (0,1,10,4,26);
+
+INSERT INTO familia VALUES (1,1,11,5,26);
+
+INSERT INTO familia VALUES (1,1,12,3,25);
+
+INSERT INTO familia VALUES (0,0,13,2,25);
+
+INSERT INTO familia VALUES (1,1,14,8,25);
+
+INSERT INTO familia VALUES (0,0,15,6,25);
+
+INSERT INTO familia VALUES (0,1,16,4,25);
+
+INSERT INTO familia VALUES (1,1,17,5,25);
+
+INSERT INTO familia VALUES (0,1,18,3,24);
+
+INSERT INTO familia VALUES (1,0,19,2,24);
+
+INSERT INTO familia VALUES (0,0,23,5,24);
+
+INSERT INTO familia VALUES (0,0,24,3,23);
+
+INSERT INTO familia VALUES (0,0,25,2,23);
+
+INSERT INTO familia VALUES (0,0,26,5,23);
+
+INSERT INTO familia VALUES (0,0,27,3,23);
+
+INSERT INTO familia VALUES (0,0,28,2,23);
+
+INSERT INTO familia VALUES (0,0,29,5,23);
+
+INSERT INTO familia VALUES (0,0,30,2,22);
+
+INSERT INTO familia VALUES (0,0,31,2,22);
+
+INSERT INTO familia VALUES (0,0,32,3,22);
+
+INSERT INTO familia VALUES (0,0,33,2,21);
+
+INSERT INTO familia VALUES (0,0,34,5,21);
+
+INSERT INTO familia VALUES (0,0,35,3,21);
+
+INSERT INTO familia VALUES (1,1,36,8,20);
+
+INSERT INTO familia VALUES (0,1,37,5,20);
+
+INSERT INTO familia VALUES (1,1,38,6,20);
+
+INSERT INTO familia VALUES (1,1,39,4,20);
+
+INSERT INTO familia VALUES (1,1,40,4,1);
+
+INSERT INTO familia VALUES (0,0,41,1,1);
+
+INSERT INTO familia VALUES (0,1,42,2,1);
+
+INSERT INTO familia VALUES (1,0,43,3,1);
+
+INSERT INTO familia VALUES (0,1,44,4,2);
+
+INSERT INTO familia VALUES (0,0,45,1,2);
+
+INSERT INTO familia VALUES (0,1,46,2,2);
+
+INSERT INTO familia VALUES (0,0,47,3,2);
+
+INSERT INTO familia VALUES (0,0,48,4,3);
+
+INSERT INTO familia VALUES (0,0,49,2,3);
+
+INSERT INTO familia VALUES (0,0,50,3,3);
+
+INSERT INTO familia VALUES (0,0,51,4,3);
+
+INSERT INTO familia VALUES (1,1,52,4,4);
+
+INSERT INTO familia VALUES (0,0,53,2,4);
+
+INSERT INTO familia VALUES (0,0,54,3,4);
+
+INSERT INTO familia VALUES (0,1,55,4,4);
+
+INSERT INTO familia VALUES (1,1,56,4,5);
+
+INSERT INTO familia VALUES (0,0,57,2,5);
+
+INSERT INTO familia VALUES (0,0,58,3,5);
+
+INSERT INTO familia VALUES (0,1,59,6,5);
+
+INSERT INTO familia VALUES (1,1,60,6,8);
+
+INSERT INTO familia VALUES (1,1,61,8,9);
+
+INSERT INTO familia VALUES (0,1,62,9,10);
+
+INSERT INTO familia VALUES (0,1,63,5,11);
+
+INSERT INTO familia VALUES (1,1,64,5,12);
+
+INSERT INTO familia VALUES (1,1,65,4,13);
+
+INSERT INTO familia VALUES (0,1,66,3,14);
+
+INSERT INTO familia VALUES (0,0,67,2,15);
+
+INSERT INTO familia VALUES (0,0,68,3,16);
+
+INSERT INTO familia VALUES (1,1,69,6,17);
+
+INSERT INTO familia VALUES (0,1,70,3,18);
+
+INSERT INTO familia VALUES (0,1,71,4,19);
+
+INSERT INTO familia VALUES (1,1,72,6,19);
