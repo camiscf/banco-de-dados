@@ -139,3 +139,77 @@ INSERT INTO bairro VALUES (0.856, '22.8905° S, 43.3909° W', 'Jardim Sulacap', 
 INSERT INTO bairro VALUES (0.931, '22.9022° S, 43.2803° W', 'Méier', '20735040', 19, 19);
 
 INSERT INTO bairro VALUES (0.794, '22.8742° S, 43.4685° W', 'Bangu', '21820020', 20, 20);
+
+## Populando tabela cinema
+
+INSERT INTO cinema VALUES (1,550,'Centro Cultural Odeon',1,1);
+
+INSERT INTO cinema VALUES (4,814,'Kinoplex Sao Luiz',2,2);
+
+INSERT INTO cinema VALUES (1,70,'Cine Musei da República',3,2);
+
+INSERT INTO cinema VALUES (6,1353,'Cinemark Botafogo',4,2);
+
+INSERT INTO cinema VALUES (6,934,'Espaço Itaú Botafogo',5,2);
+
+INSERT INTO cinema VALUES (5,450,'Estação Net Rio',6,2);
+
+INSERT INTO cinema VALUES (3,387,'Estação Net Botafogo',7,2);
+
+INSERT INTO cinema VALUES (6,643,'Kinoplex Rio Sul',8,2);
+
+INSERT INTO cinema VALUES (3,914,'Roxy',9,3);
+
+INSERT INTO cinema VALUES (1,87,'Cine Jóia',10,3);
+
+INSERT INTO cinema VALUES (6,16663,'Kinoplex Tijuca',11,5);
+
+INSERT INTO cinema VALUES (1,200,'Cine Manguinhos',12,6);
+
+INSERT INTO cinema VALUES (7,1019,'Kinoplex Boulevard Rio',13,7);
+
+INSERT INTO cinema VALUES (1,95,'Cine Carioca Nova Brasília',14,8);
+
+INSERT INTO cinema VALUES (3,389,'Cine Carioca Meier',15,19);
+
+INSERT INTO cinema VALUES (5,937,'Kinoplex Madureira',16,11);
+
+INSERT INTO cinema VALUES (4,1112,'Cinesystem Ilha Plaza',17,13);
+
+INSERT INTO cinema VALUES (1,46,'Cine Santa Teresa',18,15);
+
+INSERT INTO cinema VALUES (6,1527,'Cinesystem Bangu',19,20);
+
+INSERT INTO cinema VALUES (6,1372,'Cinesystem Cine 10 Sulacap',20,18);
+
+INSERT INTO cinema VALUES (7,920,'Cinesystem Parque Sulacap',21,18);
+
+INSERT INTO cinema VALUES (7,1677,'UCI Park Campo Grande',22,17);
+
+INSERT INTO cinema VALUES (5,1053,'Kinoplex West Shopping',23,17);
+
+INSERT INTO cinema VALUES (12,2234,'Cinemark Downtown',24,16);
+
+INSERT INTO cinema VALUES (7,1557,'Cinemark Metropolitano Barra',25,16);
+
+INSERT INTO cinema VALUES (4,283,'Cinemark Village Mall',26,16);
+
+INSERT INTO cinema VALUES (3,425,'Espaço Itaú Rio Design',27,16);
+
+INSERT INTO cinema VALUES (2,212,'Estação Net Barra Point',28,16);
+
+INSERT INTO cinema VALUES (18,4180,'UCI New York City Center',29,16);
+
+INSERT INTO cinema VALUES (6,1399,'Kinoplex Via Parque',30,16);
+
+INSERT INTO cinema VALUES (7,1248,'Cinesystem Américas',31,27);
+
+INSERT INTO cinema VALUES (5,1226,'Cinesystem Recreio',32,27);
+
+INSERT INTO cinema VALUES (1,73,'Ponto Cine',33,14);
+
+INSERT INTO cinema VALUES (5,1530,'Araujo Multiplex J.Guadalupe',34,14);
+
+INSERT INTO cinema VALUES (4,645,'Cinemark Jacarepaguá',35,12);
+
+INSERT INTO cinema VALUES (3,336,'Cine Jóia Rio Shopping',36,26);
