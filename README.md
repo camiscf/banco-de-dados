@@ -553,5 +553,5 @@ Para baixar o body-parser: 'npm install --save body-parser'
 Em seguida será preciso rodar o arquivo index.js que está na página principal e no seu terminal deve aparecer:
 
 ![image](https://user-images.githubusercontent.com/87675978/209705008-483088b4-b8ba-4e7f-bcde-17e97f7b9c4b.png)
-Então o projeto vai estar no [localhost:
-](http://localhost:3000)
+
+Então o projeto vai estar no [localhost:3000](http://localhost:3000)
