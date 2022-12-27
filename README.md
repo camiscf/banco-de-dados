@@ -555,3 +555,8 @@ Em seguida será preciso rodar o arquivo index.js que está na página principal
 ![image](https://user-images.githubusercontent.com/87675978/209705008-483088b4-b8ba-4e7f-bcde-17e97f7b9c4b.png)
 
 Então o projeto vai estar no [localhost:3000](http://localhost:3000)
+
+## Página Principal
+
+![image](https://user-images.githubusercontent.com/87675978/209705191-d4a6814f-7752-4b8d-9c77-4b9a2ca4ef0b.png)
+
