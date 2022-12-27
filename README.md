@@ -536,3 +536,22 @@ INSERT INTO regiao_administrativa VALUES('Realengo',  1, 18);
 INSERT INTO regiao_administrativa VALUES('Méier',  1, 19);
 
 INSERT INTO regiao_administrativa VALUES('Bangu',  1, 20);
+
+# Montando o projeto localmente
+
+## Instalações necessárias
+Será preciso baixar todos os arquivos deste repositório no github, precisa ter o node instalando, ejs, mysql e express:
+
+Link para baixar node: https://nodejs.org/en/download/
+
+Em seguida, escreva 'npm install express' no terminal para baixar express
+
+Para baixar o ejs: 'npm install ejs'
+
+Para baixar o body-parser: 'npm install --save body-parser'
+
+Em seguida será preciso rodar o arquivo index.js que está na página principal e no seu terminal deve aparecer:
+
+![image](https://user-images.githubusercontent.com/87675978/209705008-483088b4-b8ba-4e7f-bcde-17e97f7b9c4b.png)
+Então o projeto vai estar no [localhost:
+](http://localhost:3000)
