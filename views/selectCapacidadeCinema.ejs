@@ -28,18 +28,20 @@
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <tr>
-                                <th>Média IDH</th>
+                                <th>Capacidade do cinema</th>
+                                <th>Cinema</th>
                                 <th>Bairro</th>
                             
                             </tr>
                             <%
                             if(sampleData.length > 0)
                             {
-                                sampleData.forEach(function(selectSumFamiliaBairro){
+                                sampleData.forEach(function(select){
                             %>
                             <tr>
-                                <td><%= selectSumFamiliaBairro.SomaCapacidade %></td>
-                                <td><%= selectSumFamiliaBairro.nome %></td>
+                                <td><%= select.SomaCapacidade %></td>
+                                <td><%= select.cinema %></td>
+                                <td><%= select.nome %></td>
                                 <td></td>
                             </tr>
                             <%

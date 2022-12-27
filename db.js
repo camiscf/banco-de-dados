@@ -61,7 +61,7 @@ export async function selectRegiaoAdmBairro(RA){
 // somar a capacidade dos cinemas por bairro
 export async function selectCapacidadeCinema(){
     const conn = await connect();
-    const [rows] = await conn.query('select sum(Capacidade) as SomaCapacidade, bairro.nome from cinema inner join bairro on bairro.id = cinema.idBairro group by idBairro');
+    const [rows] = await conn.query('select sum(Capacidade) as SomaCapacidade, cinema.nome as cinema, bairro.nome from cinema inner join bairro on bairro.id = cinema.idBairro group by idBairro');
     return await rows;
 }
 

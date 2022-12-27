@@ -26,7 +26,7 @@ let queries = {
 }
 
 let titles = {
-    selectCapacidadeCinema: 'Capacidade dos Cinemas',
+    selectCapacidadeCinema: 'Capacidade dos Cinemas por Bairro',
     selectMediaIDH: 'Média dos IDHs por Região Administrativa',
     selectSumFamiliaBairro: 'Quantidade de Famílias por Bairro',
     selectFamiliaCinema: 'Famílias que frequentam cinema por bairro',
