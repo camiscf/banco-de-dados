@@ -517,6 +517,7 @@ INSERT INTO regiao_administrativa VALUES('Ramos',  1, 8);
 INSERT INTO regiao_administrativa VALUES('Inhaúma',  1, 9);
 
 INSERT INTO regiao_administrativa VALUES('Irajá',  2, 10);
+
 INSERT INTO regiao_administrativa VALUES('Madureira',  1, 11);
 
 INSERT INTO regiao_administrativa VALUES('Jacarepaguá',  2, 12);
