@@ -213,3 +213,58 @@ INSERT INTO cinema VALUES (5,1530,'Araujo Multiplex J.Guadalupe',34,14);
 INSERT INTO cinema VALUES (4,645,'Cinemark Jacarepaguá',35,12);
 
 INSERT INTO cinema VALUES (3,336,'Cine Jóia Rio Shopping',36,26);
+
+## Populando tabela dados_cecad
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (27937,42331,32596,20);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (331,817,813,16);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (4098,6542,62540,6);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (1641,2888,2880,8);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (1515,3550,3552,2);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (29471,4148,46441,17);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (6827,16944,9312,1);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (2912,6196,6182,3);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (9351,14272,14224,25);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (1746,2572,2579,9);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (1037,2031,4687,26);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (206,445,445,24);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (5172,9266,9229,14);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (1047,1792,1793,22);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (3905,8202,8199,10);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (5895,12974,11761,12);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (1288,3185,3740,13);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (315,629,627,18);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (35,5,93,4);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (1037,93,1507,21);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (212,1508,583,23);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (5361,6462,8129,11);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (1631,541,2725,19);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (2751,3264,4869,27);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (3610,2557,5815,15);
+
+INSERT INTO dados_cecad(extrema_pobreza,bolsa_familia,renda_per_capita,idbairro) VALUES (3808,13896,8378,5);
+
