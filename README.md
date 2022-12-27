@@ -497,3 +497,42 @@ INSERT INTO frequenta VALUES (2,70,18);
 INSERT INTO frequenta VALUES (2,71,19);
 
 INSERT INTO frequenta VALUES (6,72,19);
+
+## Populando tabela regiao_administrativa
+
+INSERT INTO regiao_administrativa VALUES('Botafogo',  2, 2);
+
+INSERT INTO regiao_administrativa VALUES('Copacabana',  1, 3);
+
+INSERT INTO regiao_administrativa VALUES('Lagoa',  4, 4);
+
+INSERT INTO regiao_administrativa VALUES('Tijuca',  1, 5);
+
+INSERT INTO regiao_administrativa VALUES('São Cristóvão',  1, 6);
+
+INSERT INTO regiao_administrativa VALUES('Vila Isabel',  1, 7);
+
+INSERT INTO regiao_administrativa VALUES('Ramos',  1, 8);
+
+INSERT INTO regiao_administrativa VALUES('Inhaúma',  1, 9);
+
+INSERT INTO regiao_administrativa VALUES('Irajá',  2, 10);
+INSERT INTO regiao_administrativa VALUES('Madureira',  1, 11);
+
+INSERT INTO regiao_administrativa VALUES('Jacarepaguá',  2, 12);
+
+INSERT INTO regiao_administrativa VALUES('Ilha do Governador',  1, 13);
+
+INSERT INTO regiao_administrativa VALUES('Anchieta',  1, 14);
+
+INSERT INTO regiao_administrativa VALUES('Santa Teresa',  1, 15);
+
+INSERT INTO regiao_administrativa VALUES('Barra da Tijuca',  2, 16);
+
+INSERT INTO regiao_administrativa VALUES('Campo Grande',  1, 17);
+
+INSERT INTO regiao_administrativa VALUES('Realengo',  1, 18);
+
+INSERT INTO regiao_administrativa VALUES('Méier',  1, 19);
+
+INSERT INTO regiao_administrativa VALUES('Bangu',  1, 20);
