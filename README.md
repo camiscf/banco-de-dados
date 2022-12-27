@@ -407,3 +407,93 @@ INSERT INTO familia VALUES (0,1,70,3,18);
 INSERT INTO familia VALUES (0,1,71,4,19);
 
 INSERT INTO familia VALUES (1,1,72,6,19);
+
+## Populando tabela frequenta
+
+INSERT INTO frequenta VALUES (4,1,31);
+
+INSERT INTO frequenta VALUES (2,2,31);
+
+INSERT INTO frequenta VALUES (4,3,32);
+
+INSERT INTO frequenta VALUES (2,4,32);
+
+INSERT INTO frequenta VALUES (2,7,26);
+
+INSERT INTO frequenta VALUES (2,8,26);
+
+INSERT INTO frequenta VALUES (4,9,26);
+
+INSERT INTO frequenta VALUES (2,10,26);
+
+INSERT INTO frequenta VALUES (3,13,25);
+
+INSERT INTO frequenta VALUES (8,14,25);
+
+INSERT INTO frequenta VALUES (3,15,25);
+
+INSERT INTO frequenta VALUES (5,16,25);
+
+INSERT INTO frequenta VALUES (3,18,24);
+
+INSERT INTO frequenta VALUES (2,19,24);
+
+INSERT INTO frequenta VALUES (2,23,24);
+
+INSERT INTO frequenta VALUES (3,25,23);
+
+INSERT INTO frequenta VALUES (2,26,23);
+
+INSERT INTO frequenta VALUES (2,27,23);
+
+INSERT INTO frequenta VALUES (2,28,23);
+
+INSERT INTO frequenta VALUES (3,30,22);
+
+INSERT INTO frequenta VALUES (2,31,22);
+
+INSERT INTO frequenta VALUES (2,32,22);
+
+INSERT INTO frequenta VALUES (2,33,21);
+
+INSERT INTO frequenta VALUES (3,34,21);
+
+INSERT INTO frequenta VALUES (2,35,21);
+
+INSERT INTO frequenta VALUES (8,36,20);
+
+INSERT INTO frequenta VALUES (5,37,20);
+
+INSERT INTO frequenta VALUES (6,38,20);
+
+INSERT INTO frequenta VALUES (4,40,1);
+
+INSERT INTO frequenta VALUES (0,41,1);
+
+INSERT INTO frequenta VALUES (2,42,1);
+
+INSERT INTO frequenta VALUES (4,46,2);
+
+INSERT INTO frequenta VALUES (3,47,2);
+
+INSERT INTO frequenta VALUES (2,48,2);
+
+INSERT INTO frequenta VALUES (4,50,3);
+
+INSERT INTO frequenta VALUES (3,51,3);
+
+INSERT INTO frequenta VALUES (2,52,3);
+
+INSERT INTO frequenta VALUES (4,55,4);
+
+INSERT INTO frequenta VALUES (3,56,4);
+
+INSERT INTO frequenta VALUES (2,57,4);
+
+INSERT INTO frequenta VALUES (4,58,5);
+
+INSERT INTO frequenta VALUES (2,70,18);
+
+INSERT INTO frequenta VALUES (2,71,19);
+
+INSERT INTO frequenta VALUES (6,72,19);
